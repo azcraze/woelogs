@@ -1,13 +1,12 @@
 // log.js
 const jsome = require('jsome');
-const { logSingleLine } = require("../singleLine");
-const { logMultiLine } = require("../multiLine");
+const { logSingleLine } = require("./singleLine");
+const { logMultiLine } = require("./multiLine");
 
 function log(input) {
   if ("object" === typeof input) {
     jsome(JSON.parse(JSON.stringify(input, null, 2)));
   } else if (input.includes("\n") || input.includes("\r")) {
-    console.log(typeof input);
     logMultiLine(input);
   } else {
     logSingleLine(input);
